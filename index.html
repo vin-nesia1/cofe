@@ -3,14 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIN NESIA - Spesialis Website Cepat & Modern</title>
-    <meta name="description" content="Spesialis pembuatan website cepat, modern, dan SEO-friendly untuk bisnis Anda">
+    <title>VIN NESIA - Spesialis Website Cepat & Modern | Web Developer Indonesia</title>
+    <meta name="description" content="VIN NESIA adalah spesialis pembuatan website cepat, modern, dan SEO-friendly untuk bisnis Anda. Dapatkan website responsif dengan harga terjangkau mulai dari 400K.">
+    <meta name="keywords" content="web developer, website murah, website cepat, jasa website, website bisnis, landing page, SEO friendly">
+    <meta name="author" content="VIN NESIA">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="VIN NESIA - Spesialis Website Cepat & Modern">
+    <meta property="og:description" content="Jasa pembuatan website profesional dengan harga terjangkau. Website cepat, SEO-friendly, dan mobile responsive.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vinnesia.my.id">
+    <meta property="og:image" content="https://vinnesia.my.id/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VIN NESIA - Spesialis Website Cepat & Modern">
+    <meta name="twitter:description" content="Jasa pembuatan website profesional dengan harga terjangkau">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://vinnesia.my.id">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "VIN NESIA",
+        "jobTitle": "Web Developer",
+        "description": "Spesialis pembuatan website cepat, modern, dan SEO-friendly",
+        "url": "https://vinnesia.my.id",
+        "sameAs": [
+            "https://www.instagram.com/Vin.nesia.id",
+            "https://wa.me/6289535451177"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "name": "Jasa Pembuatan Website",
+            "description": "Website cepat, responsive, dan SEO-friendly",
+            "priceRange": "400000-1200000",
+            "priceCurrency": "IDR"
+        }
+    }
+    </script>
     
     <style>
         * {
@@ -20,11 +69,34 @@
         }
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #0f0f23;
             color: #e2e8f0;
             line-height: 1.7;
             overflow-x: hidden;
+        }
+        
+        /* Improved accessibility */
+        *:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #667eea;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 4px;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
         }
         
         /* Animated Background */
@@ -70,11 +142,13 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 15, 35, 0.9);
+            background: rgba(15, 15, 35, 0.95);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
         
         .nav-container {
@@ -93,6 +167,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-decoration: none;
         }
         
         .nav-links {
@@ -107,9 +182,11 @@
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
+            padding: 0.5rem 0;
         }
         
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a:focus {
             color: #667eea;
         }
         
@@ -128,6 +205,17 @@
             width: 100%;
         }
         
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -136,7 +224,7 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            padding: 2rem;
+            padding: 8rem 2rem 2rem;
         }
         
         .hero-content {
@@ -153,6 +241,7 @@
             object-fit: cover;
             transition: all 0.4s ease;
             box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+            display: block;
         }
         
         .hero-image:hover {
@@ -201,9 +290,11 @@
             transition: all 0.4s ease;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             font-size: 1.1rem;
             border: 2px solid transparent;
+            cursor: pointer;
         }
         
         .btn-primary {
@@ -212,7 +303,8 @@
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
         
-        .btn-primary:hover {
+        .btn-primary:hover,
+        .btn-primary:focus {
             transform: translateY(-3px);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
         }
@@ -223,7 +315,8 @@
             border-color: #667eea;
         }
         
-        .btn-secondary:hover {
+        .btn-secondary:hover,
+        .btn-secondary:focus {
             background: #667eea;
             color: white;
             transform: translateY(-3px);
@@ -264,23 +357,24 @@
             margin: 0 auto;
         }
         
-        /* Portfolio Grid - Desktop Optimized */
+        /* Portfolio Grid - Optimized Layout */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
+            align-items: stretch;
         }
         
         /* Desktop: 3 columns for large screens */
-        @media (min-width: 1400px) {
+        @media (min-width: 1200px) {
             .portfolio-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
         
-        /* Desktop: 2 columns for medium screens */
-        @media (min-width: 900px) and (max-width: 1399px) {
+        /* Tablet: 2 columns */
+        @media (min-width: 768px) and (max-width: 1199px) {
             .portfolio-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -293,6 +387,10 @@
             transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         .portfolio-card:hover {
@@ -350,6 +448,9 @@
         
         .card-content {
             padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .card-title {
@@ -363,6 +464,7 @@
             color: #cbd5e1;
             margin-bottom: 1.5rem;
             line-height: 1.7;
+            flex: 1;
         }
         
         .card-features {
@@ -385,6 +487,7 @@
         .card-actions {
             display: flex;
             gap: 1rem;
+            margin-top: auto;
         }
         
         .card-btn {
@@ -399,6 +502,8 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            border: none;
+            cursor: pointer;
         }
         
         .card-btn-primary {
@@ -412,11 +517,13 @@
             border: 2px solid rgba(102, 126, 234, 0.5);
         }
         
-        .card-btn:hover {
+        .card-btn:hover,
+        .card-btn:focus {
             transform: translateY(-2px);
         }
         
-        .card-btn-secondary:hover {
+        .card-btn-secondary:hover,
+        .card-btn-secondary:focus {
             background: #667eea;
             color: white;
         }
@@ -424,7 +531,7 @@
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -432,6 +539,12 @@
         @media (min-width: 1200px) {
             .services-grid {
                 grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
@@ -443,6 +556,7 @@
             transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
         
         .service-card:hover {
@@ -473,9 +587,10 @@
         /* Pricing Section */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+            align-items: stretch;
         }
         
         @media (min-width: 1100px) {
@@ -492,7 +607,10 @@
             transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         
         .pricing-card.popular {
@@ -542,6 +660,7 @@
             list-style: none;
             margin-bottom: 2.5rem;
             text-align: left;
+            flex: 1;
         }
         
         .package-features li {
@@ -557,6 +676,7 @@
             color: #4ade80;
             font-weight: bold;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
         
         /* Contact Section */
@@ -581,6 +701,7 @@
             transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
         
         .contact-card:hover {
@@ -620,29 +741,60 @@
             transition: all 0.3s ease;
         }
         
-        .contact-link:hover {
+        .contact-link:hover,
+        .contact-link:focus {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
         
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
+        /* Animation for scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
         }
         
-        /* Responsive Design */
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 3rem 0 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsive Improvements */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 15, 35, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
             }
             
             .mobile-menu {
                 display: block;
-                background: none;
-                border: none;
-                color: #fff;
-                font-size: 1.5rem;
-                cursor: pointer;
             }
             
             .hero {
@@ -716,41 +868,37 @@
             .pricing-card {
                 padding: 2rem 1.5rem;
             }
+            
+            .nav-container {
+                padding: 0 1rem;
+            }
         }
         
-        /* Animation for scroll */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+        /* Performance optimizations */
+        img {
+            loading: lazy;
         }
         
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(15, 15, 35, 0.9);
-            padding: 3rem 0 1rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-content {
-            color: #94a3b8;
-            font-size: 0.9rem;
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <div class="background-animation"></div>
     
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <div class="logo">VIN NESIA</div>
+            <a href="#home" class="logo" aria-label="VIN NESIA Home">VIN NESIA</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
@@ -758,207 +906,282 @@
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu">
+            <button class="mobile-menu" aria-label="Toggle mobile menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <img src="https://via.placeholder.com/180x180/667eea/ffffff?text=VN" alt="VIN NESIA Profile" class="hero-image">
-            <h1 class="hero-title">VIN NESIA</h1>
-            <p class="hero-subtitle">🚀 Spesialis Website Cepat & Modern</p>
-            <p class="hero-description">
-                Saya fokus membuat website yang loading-nya super cepat, SEO-friendly, dan mobile responsive. 
-                Cocok banget untuk bisnis yang ingin tampil profesional dengan budget terjangkau!
-            </p>
-            <div class="cta-buttons">
-                <a href="#portfolio" class="btn btn-primary">
-                    <i class="fas fa-eye"></i> Lihat Portfolio
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fab fa-whatsapp"></i> Konsultasi Gratis
-                </a>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home" aria-label="Hero section">
+            <div class="hero-content">
+                <img src="https://via.placeholder.com/180x180/667eea/ffffff?text=VN" alt="VIN NESIA Profile Picture - Web Developer" class="hero-image" loading="eager">
+                <h1 class="hero-title">VIN NESIA</h1>
+                <p class="hero-subtitle">🚀 Spesialis Website Cepat & Modern</p>
+                <p class="hero-description">
+                    Saya fokus membuat website yang loading-nya super cepat, SEO-friendly, dan mobile responsive. 
+                    Cocok banget untuk bisnis yang ingin tampil profesional dengan budget terjangkau!
+                </p>
+                <div class="cta-buttons">
+                    <a href="#portfolio" class="btn btn-primary" aria-label="Lihat portfolio karya VIN NESIA">
+                        <i class="fas fa-eye" aria-hidden="true"></i> Lihat Portfolio
+                    </a>
+                    <a href="#contact" class="btn btn-secondary" aria-label="Konsultasi gratis via WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Konsultasi Gratis
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div class="container">
         <!-- Portfolio Section -->
-        <section class="section fade-in" id="portfolio">
-            <div class="section-header">
-                <h2 class="section-title">💼 Portfolio Terbaru</h2>
-                <p class="section-subtitle">Beberapa project website yang telah saya kerjakan dengan hasil yang memuaskan</p>
-            </div>
-            <div class="portfolio-grid">
-                <article class="portfolio-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&h=300&fit=crop" alt="Cafe Cozy Landing Page">
-                        <div class="card-badge">Landing Page</div>
-                        <div class="card-overlay">
-                            <div class="card-features">
-                                <span class="feature-tag">React</span>
-                                <span class="feature-tag">Mobile First</span>
-                                <span class="feature-tag">Fast Loading</span>
+        <section class="section fade-in" id="portfolio" aria-label="Portfolio section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">💼 Portfolio Terbaru</h2>
+                    <p class="section-subtitle">Beberapa project website yang telah saya kerjakan dengan hasil yang memuaskan</p>
+                </div>
+                <div class="portfolio-grid">
+                    <!-- Cafe Cozy Project -->
+                    <article class="portfolio-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&h=300&fit=crop" alt="Cafe Cozy - Website Restoran Modern" loading="lazy">
+                            <div class="card-badge">Landing Page</div>
+                            <div class="card-overlay">
+                                <div class="card-features">
+                                    <span class="feature-tag">React</span>
+                                    <span class="feature-tag">Mobile First</span>
+                                    <span class="feature-tag">Fast Loading</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Cafe Cozy - Website Resto</h3>
-                        <p class="card-description">Website modern untuk cafe dengan menu interaktif, galeri foto, dan kontak WhatsApp. Loading cepat dan mobile-friendly!</p>
-                        <div class="card-features">
-                            <span class="feature-tag">Responsive Design</span>
-                            <span class="feature-tag">WhatsApp Integration</span>
-                            <span class="feature-tag">SEO Optimized</span>
+                        <div class="card-content">
+                            <h3 class="card-title">Cafe Cozy - Website Resto</h3>
+                            <p class="card-description">Website modern untuk cafe dengan menu interaktif, galeri foto, dan kontak WhatsApp. Loading cepat dan mobile-friendly!</p>
+                            <div class="card-features">
+                                <span class="feature-tag">Responsive Design</span>
+                                <span class="feature-tag">WhatsApp Integration</span>
+                                <span class="feature-tag">SEO Optimized</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#" class="card-btn card-btn-primary" aria-label="Lihat live preview Cafe Cozy">
+                                    <i class="fas fa-eye" aria-hidden="true"></i> Live Preview
+                                </a>
+                                <a href="#" class="card-btn card-btn-secondary" aria-label="Lihat detail project Cafe Cozy">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i> Details
+                                </a>
+                            </div>
                         </div>
-                        <div class="card-actions">
-                            <a href="#" class="card-btn card-btn-primary">
-                                <i class="fas fa-eye"></i> Live Preview
-                            </a>
-                            <a href="#" class="card-btn card-btn-secondary">
-                                <i class="fas fa-info-circle"></i> Details
-                            </a>
+                    </article>
+
+                    <!-- Rini & Budi Wedding Project -->
+                    <article class="portfolio-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&h=300&fit=crop" alt="Rini & Budi Wedding - Website Undangan Digital" loading="lazy">
+                            <div class="card-badge">Wedding Site</div>
+                            <div class="card-overlay">
+                                <div class="card-features">
+                                    <span class="feature-tag">Digital Invitation</span>
+                                    <span class="feature-tag">RSVP</span>
+                                    <span class="feature-tag">Map Integration</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                        <div class="card-content">
+                            <h3 class="card-title">Rini & Budi Wedding</h3>
+                            <p class="card-description">Website undangan pernikahan digital dengan countdown timer, peta lokasi, dan RSVP online. Hemat budget printing!</p>
+                            <div class="card-features">
+                                <span class="feature-tag">Digital Invitation</span>
+                                <span class="feature-tag">RSVP Form</span>
+                                <span class="feature-tag">Map Integration</span>
+                                <span class="feature-tag">Countdown Timer</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#" class="card-btn card-btn-primary" aria-label="Lihat live preview Wedding Rini & Budi">
+                                    <i class="fas fa-eye" aria-hidden="true"></i> Live Preview
+                                </a>
+                                <a href="#" class="card-btn card-btn-secondary" aria-label="Lihat detail project Wedding">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i> Details
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Andi Photographer Project -->
+                    <article class="portfolio-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=500&h=300&fit=crop" alt="Andi Photographer - Website Portfolio Fotografer" loading="lazy">
+                            <div class="card-badge">Portfolio</div>
+                            <div class="card-overlay">
+                                <div class="card-features">
+                                    <span class="feature-tag">Gallery</span>
+                                    <span class="feature-tag">Contact Form</span>
+                                    <span class="feature-tag">Elegant Design</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Andi Photographer</h3>
+                            <p class="card-description">Portfolio website untuk fotografer profesional dengan gallery yang elegant dan form kontak terintegrasi.</p>
+                            <div class="card-features">
+                                <span class="feature-tag">Image Gallery</span>
+                                <span class="feature-tag">Contact Form</span>
+                                <span class="feature-tag">SEO Optimized</span>
+                                <span class="feature-tag">Lightbox Effect</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#" class="card-btn card-btn-primary" aria-label="Lihat live preview Portfolio Andi">
+                                    <i class="fas fa-eye" aria-hidden="true"></i> Live Preview
+                                </a>
+                                <a href="#" class="card-btn card-btn-secondary" aria-label="Lihat detail project Photographer">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i> Details
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section class="section fade-in" id="services">
-            <div class="section-header">
-                <h2 class="section-title">🎯 Keahlian Saya</h2>
-                <p class="section-subtitle">Spesialisasi dalam pembuatan website yang cepat, modern, dan user-friendly</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-rocket service-icon"></i>
-                    <h3 class="service-title">Website Super Cepat</h3>
-                    <p class="service-description">Website yang saya buat loading-nya sangat cepat karena menggunakan teknik optimasi terbaru. Cocok untuk bisnis yang ingin customer tidak kabur karena loading lama!</p>
+        <section class="section fade-in" id="services" aria-label="Services section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🎯 Keahlian Saya</h2>
+                    <p class="section-subtitle">Spesialisasi dalam pembuatan website yang cepat, modern, dan user-friendly</p>
                 </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-rocket service-icon" aria-hidden="true"></i>
+                        <h3 class="service-title">Website Super Cepat</h3>
+                        <p class="service-description">Website yang saya buat loading-nya sangat cepat karena menggunakan teknik optimasi terbaru. Cocok untuk bisnis yang ingin customer tidak kabur karena loading lama!</p>
+                    </div>
 
-                <div class="service-card">
-                    <i class="fas fa-mobile-alt service-icon"></i>
-                    <h3 class="service-title">Mobile Responsive</h3>
-                    <p class="service-description">Semua website yang saya buat pasti tampil bagus di HP, tablet, dan desktop. Karena 80% orang sekarang buka website dari HP!</p>
-                </div>
+                    <div class="service-card">
+                        <i class="fas fa-mobile-alt service-icon" aria-hidden="true"></i>
+                        <h3 class="service-title">Mobile Responsive</h3>
+                        <p class="service-description">Semua website yang saya buat pasti tampil bagus di HP, tablet, dan desktop. Karena 80% orang sekarang buka website dari HP!</p>
+                    </div>
 
-                <div class="service-card">
-                    <i class="fas fa-search service-icon"></i>
-                    <h3 class="service-title">SEO Friendly</h3>
-                    <p class="service-description">Website Anda akan mudah ditemukan di Google karena saya optimasi struktur dan konten sesuai standar SEO terbaru.</p>
-                </div>
+                    <div class="service-card">
+                        <i class="fas fa-search service-icon" aria-hidden="true"></i>
+                        <h3 class="service-title">SEO Friendly</h3>
+                        <p class="service-description">Website Anda akan mudah ditemukan di Google karena saya optimasi struktur dan konten sesuai standar SEO terbaru.</p>
+                    </div>
 
-                <div class="service-card">
-                    <i class="fas fa-dollar-sign service-icon"></i>
-                    <h3 class="service-title">Hosting Hemat</h3>
-                    <p class="service-description">Karena website statis, hosting-nya lebih murah dan stabil. Anda bisa hemat biaya operasional website hingga 70%!</p>
+                    <div class="service-card">
+                        <i class="fas fa-dollar-sign service-icon" aria-hidden="true"></i>
+                        <h3 class="service-title">Hosting Hemat</h3>
+                        <p class="service-description">Karena website statis, hosting-nya lebih murah dan stabil. Anda bisa hemat biaya operasional website hingga 70%!</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Pricing Section -->
-        <section class="section fade-in" id="pricing">
-            <div class="section-header">
-                <h2 class="section-title">💰 Paket Harga Terjangkau</h2>
-                <p class="section-subtitle">Pilih paket yang sesuai dengan kebutuhan dan budget Anda</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 class="package-name">Paket Starter</h3>
-                    <div class="package-price">400K</div>
-                    <ul class="package-features">
-                        <li>Landing page 1 halaman</li>
-                        <li>Responsive design</li>
-                        <li>Contact form WhatsApp</li>
-                        <li>SEO basic</li>
-                        <li>Revisi 2x</li>
-                        <li>Selesai 3-5 hari</li>
-                        <li>Domain & hosting guidance</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Pilih Paket</a>
+        <section class="section fade-in" id="pricing" aria-label="Pricing section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">💰 Paket Harga Terjangkau</h2>
+                    <p class="section-subtitle">Pilih paket yang sesuai dengan kebutuhan dan budget Anda</p>
                 </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3 class="package-name">Paket Starter</h3>
+                        <div class="package-price">400K</div>
+                        <ul class="package-features">
+                            <li>Landing page 1 halaman</li>
+                            <li>Responsive design</li>
+                            <li>Contact form WhatsApp</li>
+                            <li>SEO basic</li>
+                            <li>Revisi 2x</li>
+                            <li>Selesai 3-5 hari</li>
+                            <li>Domain & hosting guidance</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary" aria-label="Pilih paket Starter">Pilih Paket</a>
+                    </div>
 
-                <div class="pricing-card popular">
-                    <h3 class="package-name">Paket Business</h3>
-                    <div class="package-price">800K</div>
-                    <ul class="package-features">
-                        <li>Website 5 halaman</li>
-                        <li>Responsive design</li>
-                        <li>Contact form + WhatsApp</li>
-                        <li>SEO optimized</li>
-                        <li>Image gallery</li>
-                        <li>Google Maps integration</li>
-                        <li>Social media integration</li>
-                        <li>Revisi 5x</li>
-                        <li>Selesai 5-7 hari</li>
-                        <li>Analytics setup</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Pilih Paket</a>
-                </div>
+                    <div class="pricing-card popular">
+                        <h3 class="package-name">Paket Business</h3>
+                        <div class="package-price">800K</div>
+                        <ul class="package-features">
+                            <li>Website 5 halaman</li>
+                            <li>Responsive design</li>
+                            <li>Contact form + WhatsApp</li>
+                            <li>SEO optimized</li>
+                            <li>Image gallery</li>
+                            <li>Google Maps integration</li>
+                            <li>Social media integration</li>
+                            <li>Revisi 5x</li>
+                            <li>Selesai 5-7 hari</li>
+                            <li>Analytics setup</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary" aria-label="Pilih paket Business - Paling Populer">Pilih Paket</a>
+                    </div>
 
-                <div class="pricing-card">
-                    <h3 class="package-name">Paket Premium</h3>
-                    <div class="package-price">1.2JT</div>
-                    <ul class="package-features">
-                        <li>Website unlimited halaman</li>
-                        <li>Custom design</li>
-                        <li>Advanced contact forms</li>
-                        <li>SEO premium</li>
-                        <li>E-commerce ready</li>
-                        <li>Performance optimization</li>
-                        <li>Social media integration</li>
-                        <li>Revisi unlimited</li>
-                        <li>Selesai 7-10 hari</li>
-                        <li>Free minor update 3 bulan</li>
-                        <li>Priority support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Pilih Paket</a>
+                    <div class="pricing-card">
+                        <h3 class="package-name">Paket Premium</h3>
+                        <div class="package-price">1.2JT</div>
+                        <ul class="package-features">
+                            <li>Website unlimited halaman</li>
+                            <li>Custom design</li>
+                            <li>Advanced contact forms</li>
+                            <li>SEO premium</li>
+                            <li>E-commerce ready</li>
+                            <li>Performance optimization</li>
+                            <li>Social media integration</li>
+                            <li>Revisi unlimited</li>
+                            <li>Selesai 7-10 hari</li>
+                            <li>Free minor update 3 bulan</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary" aria-label="Pilih paket Premium">Pilih Paket</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="section fade-in" id="contact">
-            <div class="section-header">
-                <h2 class="section-title">📞 Yuk Konsultasi Gratis!</h2>
-                <p class="section-subtitle">Hubungi saya sekarang untuk diskusi project website impian Anda</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fab fa-whatsapp contact-icon"></i>
-                    <h3 class="contact-title">WhatsApp</h3>
-                    <p class="contact-description">Chat langsung untuk konsultasi cepat dan response dalam hitungan menit</p>
-                    <a href="https://wa.me/6289535451177?text=Halo%20kak,%20saya%20mau%20konsultasi%20website" class="contact-link" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Chat Sekarang
-                    </a>
+        <section class="section fade-in" id="contact" aria-label="Contact section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">📞 Yuk Konsultasi Gratis!</h2>
+                    <p class="section-subtitle">Hubungi saya sekarang untuk diskusi project website impian Anda</p>
                 </div>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <i class="fab fa-whatsapp contact-icon" aria-hidden="true"></i>
+                        <h3 class="contact-title">WhatsApp</h3>
+                        <p class="contact-description">Chat langsung untuk konsultasi cepat dan response dalam hitungan menit</p>
+                        <a href="https://wa.me/6289535451177?text=Halo%20kak,%20saya%20mau%20konsultasi%20website" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp VIN NESIA">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat Sekarang
+                        </a>
+                    </div>
 
-                <div class="contact-card">
-                    <i class="fas fa-envelope contact-icon"></i>
-                    <h3 class="contact-title">Email</h3>
-                    <p class="contact-description">Untuk diskusi project detail dan pengiriman file-file project</p>
-                    <a href="mailto:admin@vinnesia.my.id?subject=Konsultasi%20Website" class="contact-link">
-                        <i class="fas fa-envelope"></i> Kirim Email
-                    </a>
-                </div>
+                    <div class="contact-card">
+                        <i class="fas fa-envelope contact-icon" aria-hidden="true"></i>
+                        <h3 class="contact-title">Email</h3>
+                        <p class="contact-description">Untuk diskusi project detail dan pengiriman file-file project</p>
+                        <a href="mailto:admin@vinnesia.my.id?subject=Konsultasi%20Website" class="contact-link" aria-label="Kirim email ke VIN NESIA">
+                            <i class="fas fa-envelope" aria-hidden="true"></i> Kirim Email
+                        </a>
+                    </div>
 
-                <div class="contact-card">
-                    <i class="fab fa-instagram contact-icon"></i>
-                    <h3 class="contact-title">Instagram</h3>
-                    <p class="contact-description">Lihat portfolio terbaru dan tips-tips website development</p>
-                    <a href="https://www.instagram.com/Vin.nesia.id" class="contact-link" target="_blank">
-                        <i class="fab fa-instagram"></i> Follow IG
-                    </a>
+                    <div class="contact-card">
+                        <i class="fab fa-instagram contact-icon" aria-hidden="true"></i>
+                        <h3 class="contact-title">Instagram</h3>
+                        <p class="contact-description">Lihat portfolio terbaru dan tips-tips website development</p>
+                        <a href="https://www.instagram.com/Vin.nesia.id" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Follow Instagram VIN NESIA">
+                            <i class="fab fa-instagram" aria-hidden="true"></i> Follow IG
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <p>&copy; 2025 VIN NESIA. All rights reserved. Built with ❤️ for your business success.</p>
@@ -985,6 +1208,30 @@
             });
         });
 
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            const isExpanded = mobileMenu.getAttribute('aria-expanded') === 'true';
+            mobileMenu.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+            
+            // Change icon
+            const icon = mobileMenu.querySelector('i');
+            icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.setAttribute('aria-expanded', 'false');
+                const icon = mobileMenu.querySelector('i');
+                icon.className = 'fas fa-bars';
+            });
+        });
+
         // Fade in animation on scroll
         const observerOptions = {
             threshold: 0.1,
@@ -1004,58 +1251,22 @@
             observer.observe(el);
         });
 
-        // Portfolio card hover effects
-        document.querySelectorAll('.portfolio-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Add parallax effect to background
-        window.addEventListener('scroll', () => {
+        // Add parallax effect to background (reduced for performance)
+        let ticking = false;
+        function updateParallax() {
             const scrolled = window.pageYOffset;
             const background = document.querySelector('.background-animation');
-            const rate = scrolled * -0.5;
+            const rate = scrolled * -0.2; // Reduced parallax intensity
             background.style.transform = `translateY(${rate}px)`;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
         });
-
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '100%';
-            navLinks.style.left = '0';
-            navLinks.style.width = '100%';
-            navLinks.style.background = 'rgba(15, 15, 35, 0.95)';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.padding = '1rem';
-            navLinks.style.backdropFilter = 'blur(20px)';
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navLinks.style.display = 'none';
-                }
-            });
-        });
-
-        // Add loading animation
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-            document.body.style.transition = 'opacity 0.5s ease';
-        });
-
-        // Initialize body opacity
-        document.body.style.opacity = '0';
 
         // Typing effect for hero subtitle
         const subtitle = document.querySelector('.hero-subtitle');
@@ -1072,100 +1283,79 @@
         }
 
         // Start typing effect after page load
-        setTimeout(typeWriter, 1000);
-
-        // Add hover effect to CTA buttons
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(typeWriter, 1000);
         });
 
-        // Track portfolio interactions for analytics
+        // Initialize body opacity
+        document.body.style.opacity = '0';
+
+        // Performance optimization: Intersection Observer for animations
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Track portfolio interactions for analytics (optional)
         document.querySelectorAll('.card-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 const projectName = this.closest('.portfolio-card').querySelector('.card-title').textContent;
                 console.log('Portfolio interaction:', projectName);
-                // Here you can add Google Analytics tracking
+                // Add Google Analytics tracking here if needed
+                // gtag('event', 'portfolio_click', { 'project_name': projectName });
             });
         });
 
-        // Performance optimization: Lazy loading for images
-        const images = document.querySelectorAll('img');
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        observer.unobserve(img);
-                    }
-                }
-            });
-        });
-
-        images.forEach(img => {
-            if (img.dataset.src) {
-                imageObserver.observe(img);
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenu.setAttribute('aria-expanded', 'false');
+                const icon = mobileMenu.querySelector('i');
+                icon.className = 'fas fa-bars';
             }
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        });
+
+        // Add hover effects for better UX
+        document.querySelectorAll('.portfolio-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Preload critical images
+        const criticalImages = [
+            'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&h=300&fit=crop',
+            'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&h=300&fit=crop',
+            'https://images.unsplash.com/photo-1560472355-536de3962603?w=500&h=300&fit=crop'
+        ];
+
+        criticalImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
         });
     </script>
 </body>
 </html>
-
-                <article class="portfolio-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=500&h=300&fit=crop" alt="Photographer Portfolio">
-                        <div class="card-badge">Portfolio</div>
-                        <div class="card-overlay">
-                            <div class="card-features">
-                                <span class="feature-tag">Gallery</span>
-                                <span class="feature-tag">Contact Form</span>
-                                <span class="feature-tag">Elegant Design</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Andi Photographer</h3>
-                        <p class="card-description">Portfolio website untuk fotografer profesional dengan gallery yang elegant dan form kontak terintegrasi.</p>
-                        <div class="card-features">
-                            <span class="feature-tag">Image Gallery</span>
-                            <span class="feature-tag">Contact Form</span>
-                            <span class="feature-tag">SEO Optimized</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="card-btn card-btn-primary">
-                                <i class="fas fa-eye"></i> Live Preview
-                            </a>
-                            <a href="#" class="card-btn card-btn-secondary">
-                                <i class="fas fa-info-circle"></i> Details
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="portfolio-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&h=300&fit=crop" alt="Wedding Invitation">
-                        <div class="card-badge">Wedding Site</div>
-                        <div class="card-overlay">
-                            <div class="card-features">
-                                <span class="feature-tag">Digital Invitation</span>
-                                <span class="feature-tag">RSVP</span>
-                                <span class="feature-tag">Map Integration</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Rini & Budi Wedding</h3>
-                        <p class="card-description">Website undangan pernikahan digital dengan countdown timer, peta lokasi, dan RSVP online. Hemat budget printing!</p>
-                        <div class="card-features">
-                            <span class="feature-tag">Digital Invitation</span>
-                            <span class="feature-tag">RSVP Form</span>
-                            <span class="feature-tag">Map Integration</span>
-                        </div>
