@@ -26,10 +26,91 @@
     
     <!-- Custom page styles -->
     <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #06b6d4;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 2.5rem;
+            --space-3xl: 3rem;
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --transition-base: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav {
+            padding: var(--space-md) 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
         .tutorial-content {
             max-width: 900px;
             margin: 0 auto;
-            padding: var(--space-3xl) var(--space-md);
+            padding: 120px var(--space-md) var(--space-3xl);
         }
         
         .tutorial-header {
@@ -40,6 +121,78 @@
             backdrop-filter: blur(10px);
             border-radius: var(--radius-2xl);
             box-shadow: var(--shadow-lg);
+        }
+
+        .tutorial-header h1 {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tutorial-header p {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+        
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .toc {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .toc h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            font-size: var(--text-lg);
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            display: block;
+            transition: var(--transition-base);
+        }
+
+        .toc a:hover {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
         }
         
         .tutorial-step {
@@ -111,6 +264,8 @@
             margin: var(--space-md) 0;
             overflow-x: auto;
             position: relative;
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-sm);
         }
         
         .code-block::before {
@@ -160,7 +315,7 @@
             background: var(--bg-secondary);
             padding: var(--space-lg);
             border-radius: var(--radius-lg);
-            border: 1px solid #E5E7EB;
+            border: 1px solid var(--border-color);
             transition: all var(--transition-base);
         }
         
@@ -174,51 +329,720 @@
             color: var(--primary-color);
             margin-bottom: var(--space-sm);
         }
-        
-        .breadcrumb {
-            background: rgba(255, 255, 255, 0.95);
-            padding: var(--space-md) var(--space-xl);
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-lg);
+            border: none;
             border-radius: var(--radius-lg);
-            margin-bottom: var(--space-xl);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .breadcrumb a {
-            color: var(--primary-color);
+            font-weight: 500;
             text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-base);
         }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
         }
-        
-        .toc {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            margin-bottom: var(--space-xl);
-            position: sticky;
-            top: 100px;
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
         }
-        
-        .toc h3 {
-            color: var(--text-primary);
-            margin-bottom: var(--space-md);
-            font-size: var(--text-lg);
+
+        @media (max-width: 768px) {
+            .tutorial-content {
+                padding: 100px var(--space-sm) var(--space-xl);
+            }
+
+            .tutorial-header {
+                padding: var(--space-lg);
+            }
+
+            .tutorial-header h1 {
+                font-size: var(--text-2xl);
+            }
+
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-sm);
+            }
+
+            .tools-list {
+                grid-template-columns: 1fr;
+            }
         }
-        
-        .toc ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .toc li {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .toc a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: var(--space-sm) var(--space-m
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <i class="fas fa-layer-group"></i>
+                        VIN NESIA
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="tutorial-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> / <span>Cara Pakai Template</span>
+        </nav>
+
+        <!-- Header -->
+        <div class="tutorial-header">
+            <h1><i class="fas fa-graduation-cap"></i> Cara Menggunakan Template Website</h1>
+            <p>Panduan lengkap step-by-step untuk menggunakan template website premium dari VIN NESIA</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3><i class="fas fa-list"></i> Daftar Isi</h3>
+            <ul>
+                <li><a href="#persiapan">1. Persiapan Tools & Software</a></li>
+                <li><a href="#download">2. Download & Extract Template</a></li>
+                <li><a href="#struktur">3. Memahami Struktur File</a></li>
+                <li><a href="#edit-konten">4. Edit Konten Website</a></li>
+                <li><a href="#kustomisasi">5. Kustomisasi Design</a></li>
+                <li><a href="#hosting">6. Upload ke Hosting</a></li>
+                <li><a href="#domain">7. Setting Domain</a></li>
+                <li><a href="#seo">8. Optimasi SEO</a></li>
+            </ul>
+        </div>
+
+        <!-- Step 1: Persiapan -->
+        <div class="tutorial-step" id="persiapan">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <h2>Persiapan Tools & Software</h2>
+            </div>
+            <div class="step-content">
+                <h3>Software yang Diperlukan</h3>
+                <p>Sebelum mulai menggunakan template, pastikan Anda sudah menyiapkan tools berikut:</p>
+                
+                <div class="tools-list">
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Code Editor</h4>
+                        <p>Visual Studio Code (Gratis) - Recommended</p>
+                        <p>Sublime Text, Atom, atau Notepad++</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>Web Browser</h4>
+                        <p>Google Chrome (Recommended)</p>
+                        <p>Firefox, Safari, atau Edge</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <h4>FTP Client</h4>
+                        <p>FileZilla (Gratis) - Recommended</p>
+                        <p>WinSCP atau cPanel File Manager</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h4>Web Hosting</h4>
+                        <p>Hosting dengan support PHP/HTML</p>
+                        <p>Domain untuk website Anda</p>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <i class="fas fa-check-circle success-icon"></i>
+                    <strong>Tips:</strong> Gunakan Visual Studio Code karena memiliki fitur auto-complete dan syntax highlighting yang sangat membantu.
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Download & Extract -->
+        <div class="tutorial-step" id="download">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <h2>Download & Extract Template</h2>
+            </div>
+            <div class="step-content">
+                <h3>Proses Download</h3>
+                <p>Setelah melakukan pembayaran, Anda akan menerima link download via email dalam maksimal 24 jam. File template berbentuk ZIP yang perlu di-extract.</p>
+                
+                <h4>Langkah-langkah:</h4>
+                <ul>
+                    <li>Check email Anda untuk link download</li>
+                    <li>Download file template (.zip)</li>
+                    <li>Extract file ke folder kerja Anda</li>
+                    <li>Buka folder hasil extract</li>
+                </ul>
+
+                <div class="code-block" data-language="folder structure">
+template-nama/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+├── assets/
+│   ├── images/
+│   └── icons/
+├── pages/
+└── README.md
+                </div>
+
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle warning-icon"></i>
+                    <strong>Penting:</strong> Jangan lupa untuk backup file original sebelum melakukan modifikasi apapun.
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Struktur File -->
+        <div class="tutorial-step" id="struktur">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <h2>Memahami Struktur File</h2>
+            </div>
+            <div class="step-content">
+                <h3>Penjelasan Folder & File</h3>
+                
+                <h4>📄 index.html</h4>
+                <p>File utama yang akan dibuka pertama kali oleh pengunjung. Berisi struktur HTML lengkap website.</p>
+                
+                <h4>📁 css/</h4>
+                <ul>
+                    <li><strong>styles.css</strong> - File CSS utama untuk styling website</li>
+                    <li>File CSS tambahan untuk komponen tertentu</li>
+                </ul>
+                
+                <h4>📁 js/</h4>
+                <ul>
+                    <li><strong>main.js</strong> - JavaScript untuk interaktivitas</li>
+                    <li>Plugin dan library JavaScript lainnya</li>
+                </ul>
+                
+                <h4>📁 assets/</h4>
+                <ul>
+                    <li><strong>images/</strong> - Folder untuk gambar dan foto</li>
+                    <li><strong>icons/</strong> - Icon dan logo website</li>
+                </ul>
+                
+                <h4>📁 pages/</h4>
+                <p>Halaman tambahan seperti About, Contact, dll.</p>
+
+                <div class="success-box">
+                    <i class="fas fa-lightbulb success-icon"></i>
+                    <strong>Tips:</strong> Selalu gunakan path relatif untuk menghindari masalah ketika upload ke hosting.
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Edit Konten -->
+        <div class="tutorial-step" id="edit-konten">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <h2>Edit Konten Website</h2>
+            </div>
+            <div class="step-content">
+                <h3>Mengubah Konten Teks</h3>
+                <p>Buka file <code>index.html</code> dengan code editor dan ganti konten sesuai kebutuhan:</p>
+                
+                <h4>1. Ganti Judul Website</h4>
+                <div class="code-block" data-language="html">
+&lt;title&gt;Nama Bisnis Anda - Deskripsi Bisnis&lt;/title&gt;
+&lt;h1 class="hero-title"&gt;Selamat Datang di Bisnis Anda&lt;/h1&gt;
+                </div>
+                
+                <h4>2. Update Informasi Kontak</h4>
+                <div class="code-block" data-language="html">
+&lt;p&gt;&lt;a href="mailto:email@domain.com"&gt;email@domain.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://wa.me/62812345678"&gt;+62 812 345 678&lt;/a&gt;&lt;/p&gt;
+                </div>
+                
+                <h4>3. Ganti Logo dan Gambar</h4>
+                <ul>
+                    <li>Replace gambar di folder <code>assets/images/</code></li>
+                    <li>Gunakan format JPG/PNG dengan ukuran optimal</li>
+                    <li>Compress gambar untuk loading lebih cepat</li>
+                </ul>
+
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle warning-icon"></i>
+                    <strong>Perhatian:</strong> Backup file original sebelum edit. Gunakan nama file yang sama atau update reference di HTML.
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: Kustomisasi -->
+        <div class="tutorial-step" id="kustomisasi">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <h2>Kustomisasi Design</h2>
+            </div>
+            <div class="step-content">
+                <h3>Mengubah Warna dan Font</h3>
+                <p>Buka file <code>css/styles.css</code> untuk mengubah tampilan:</p>
+                
+                <h4>1. Ganti Warna Utama</h4>
+                <div class="code-block" data-language="css">
+:root {
+    --primary-color: #your-color;
+    --secondary-color: #your-secondary-color;
+    --text-color: #333333;
+}
+                </div>
+                
+                <h4>2. Ubah Font</h4>
+                <div class="code-block" data-language="css">
+body {
+    font-family: 'Your Font', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Your Heading Font', serif;
+}
+                </div>
+                
+                <h4>3. Sesuaikan Layout</h4>
+                <ul>
+                    <li>Ubah margin dan padding sesuai kebutuhan</li>
+                    <li>Adjust ukuran font dan spacing</li>
+                    <li>Modifikasi hover effects dan animasi</li>
+                </ul>
+
+                <div class="success-box">
+                    <i class="fas fa-palette success-icon"></i>
+                    <strong>Rekomendasi:</strong> Gunakan tools seperti Coolors.co untuk memilih kombinasi warna yang harmonis.
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 6: Upload ke Hosting -->
+        <div class="tutorial-step" id="hosting">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <h2>Upload ke Hosting</h2>
+            </div>
+            <div class="step-content">
+                <h3>Upload Files via FTP</h3>
+                <p>Gunakan FileZilla atau File Manager cPanel untuk upload:</p>
+                
+                <h4>Via FileZilla:</h4>
+                <ul>
+                    <li>Buka FileZilla dan connect ke hosting</li>
+                    <li>Navigate ke folder <code>public_html</code></li>
+                    <li>Upload semua file template</li>
+                    <li>Pastikan file permission sudah benar (755 untuk folder, 644 untuk file)</li>
+                </ul>
+                
+                <h4>Via cPanel File Manager:</h4>
+                <ul>
+                    <li>Login ke cPanel hosting Anda</li>
+                    <li>Buka File Manager</li>
+                    <li>Navigate ke <code>public_html</code></li>
+                    <li>Upload file ZIP dan extract di hosting</li>
+                </ul>
+
+                <div class="code-block" data-language="structure">
+public_html/
+├── index.html
+├── css/
+├── js/
+├── assets/
+└── pages/
+                </div>
+
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle warning-icon"></i>
+                    <strong>Penting:</strong> Pastikan file index.html berada di root folder (public_html) agar bisa diakses langsung.
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 7: Setting Domain -->
+        <div class="tutorial-step" id="domain">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <h2>Setting Domain</h2>
+            </div>
+            <div class="step-content">
+                <h3>Konfigurasi Domain & DNS</h3>
+                <p>Pastikan domain sudah pointing ke hosting yang benar:</p>
+                
+                <h4>Setting Nameserver:</h4>
+                <ul>
+                    <li>Login ke domain registrar (Namecheap, GoDaddy, dll)</li>
+                    <li>Update nameserver sesuai dengan hosting</li>
+                    <li>Tunggu propagasi DNS (24-48 jam)</li>
+                </ul>
+                
+                <h4>SSL Certificate:</h4>
+                <ul>
+                    <li>Aktifkan SSL gratis dari cPanel</li>
+                    <li>Atau gunakan Let's Encrypt</li>
+                    <li>Force redirect HTTP ke HTTPS</li>
+                </ul>
+
+                <div class="success-box">
+                    <i class="fas fa-shield-alt success-icon"></i>
+                    <strong>Keamanan:</strong> Selalu gunakan SSL certificate untuk keamanan dan ranking SEO yang lebih baik.
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 8: SEO -->
+        <div class="tutorial-step" id="seo">
+            <div class="step-header">
+                <div class="step-number">8</div>
+                <h2>Optimasi SEO</h2>
+            </div>
+            <div class="step-content">
+                <h3>SEO On-Page Optimization</h3>
+                <p>Template sudah SEO ready, tapi Anda bisa optimasi lebih lanjut:</p>
+                
+                <h4>1. Update Meta Tags</h4>
+                <div class="code-block" data-language="html">
+&lt;meta name="description" content="Deskripsi bisnis Anda max 160 karakter"&gt;
+&lt;meta name="keywords" content="keyword1, keyword2, keyword3"&gt;
+&lt;meta property="og:title" content="Judul untuk social media"&gt;
+                </div>
+                
+                <h4>2. Optimasi Gambar</h4>
+                <ul>
+                    <li>Compress gambar untuk loading cepat</li>
+                    <li>Tambahkan alt text pada semua gambar</li>
+                    <li>Gunakan format WebP jika memungkinkan</li>
+                </ul>
+                
+                <h4>3. Submit ke Search Console</h4>
+                <ul>
+                    <li>Daftar Google Search Console</li>
+                    <li>Verify ownership website</li>
+                    <li>Submit sitemap.xml</li>
+                    <li>Monitor performa SEO</li>
+                </ul>
+
+                <div class="success-box">
+                    <i class="fas fa-chart-line success-icon"></i>
+                    <strong>Pro Tips:</strong> Gunakan Google Analytics untuk tracking visitor dan Google Search Console untuk monitoring SEO.
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Tips Section -->
+        <div class="tutorial-step">
+            <div class="step-header">
+                <div class="step-number"><i class="fas fa-lightbulb"></i></div>
+                <h2>Tips & Troubleshooting</h2>
+            </div>
+            <div class="step-content">
+                <h3>Tips Penggunaan Template</h3>
+                
+                <h4>✅ Best Practices:</h4>
+                <ul>
+                    <li><strong>Backup Rutin:</strong> Selalu backup website secara berkala</li>
+                    <li><strong>Update Browser:</strong> Test website di berbagai browser dan device</li>
+                    <li><strong>Optimasi Gambar:</strong> Compress gambar sebelum upload untuk loading cepat</li>
+                    <li><strong>Mobile First:</strong> Prioritaskan tampilan mobile karena mayoritas user mobile</li>
+                    <li><strong>Content Fresh:</strong> Update konten secara rutin untuk SEO yang lebih baik</li>
+                </ul>
+                
+                <h4>⚠️ Common Issues & Solutions:</h4>
+                
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle warning-icon"></i>
+                    <strong>Website tidak muncul:</strong>
+                    <ul>
+                        <li>Pastikan file index.html ada di folder public_html</li>
+                        <li>Check DNS propagation (bisa 24-48 jam)</li>
+                        <li>Verify nameserver sudah benar</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle warning-icon"></i>
+                    <strong>Layout berantakan:</strong>
+                    <ul>
+                        <li>Check apakah file CSS ter-upload dengan benar</li>
+                        <li>Pastikan path/link CSS sudah sesuai</li>
+                        <li>Clear browser cache dan refresh</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle warning-icon"></i>
+                    <strong>Form tidak berfungsi:</strong>
+                    <ul>
+                        <li>Update action form dengan email/service yang benar</li>
+                        <li>Test form functionality setelah upload</li>
+                        <li>Check apakah hosting support PHP (jika menggunakan PHP form)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Section -->
+        <div class="tutorial-step">
+            <div class="step-header">
+                <div class="step-number"><i class="fas fa-headset"></i></div>
+                <h2>Support & Bantuan</h2>
+            </div>
+            <div class="step-content">
+                <h3>Dapatkan Bantuan 24/7</h3>
+                <p>Jika Anda mengalami kesulitan atau butuh bantuan, tim VIN NESIA siap membantu:</p>
+                
+                <div class="tools-list">
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h4>WhatsApp Support</h4>
+                        <p><a href="https://wa.me/6289535451177">+62 895 3545 11777</a></p>
+                        <p>Response time: < 1 jam</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Support</h4>
+                        <p><a href="mailto:support@vinnesia.my.id">support@vinnesia.my.id</a></p>
+                        <p>Response time: < 24 jam</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Installation Service</h4>
+                        <p>Layanan install gratis untuk semua customer</p>
+                        <p>Include: Upload, setup, dan kustomisasi dasar</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Tutorial Video</h4>
+                        <p>Video tutorial step-by-step</p>
+                        <p>Panduan visual untuk pemula</p>
+                    </div>
+                </div>
+                
+                <div class="success-box">
+                    <i class="fas fa-gift success-icon"></i>
+                    <strong>Bonus Support:</strong> Semua customer mendapat support premium gratis selama 30 hari pertama!
+                </div>
+                
+                <h3>Layanan Tambahan</h3>
+                <ul>
+                    <li><strong>Custom Development:</strong> Modifikasi fitur sesuai kebutuhan spesifik</li>
+                    <li><strong>SEO Optimization:</strong> Optimasi lanjutan untuk ranking Google</li>
+                    <li><strong>Speed Optimization:</strong> Optimasi performa untuk loading super cepat</li>
+                    <li><strong>Mobile App:</strong> Convert website ke mobile app</li>
+                    <li><strong>Maintenance:</strong> Layanan maintenance dan update berkala</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="tutorial-step">
+            <div class="step-header">
+                <div class="step-number"><i class="fas fa-question-circle"></i></div>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="step-content">
+                <h3>Pertanyaan yang Sering Diajukan</h3>
+                
+                <div class="faq-item">
+                    <h4>Q: Apakah template bisa digunakan untuk berbagai jenis bisnis?</h4>
+                    <p><strong>A:</strong> Ya, template kami flexible dan bisa dikustomisasi untuk berbagai jenis bisnis seperti cafe, restaurant, toko online, company profile, dll.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Q: Apakah saya perlu coding untuk menggunakan template?</h4>
+                    <p><strong>A:</strong> Tidak wajib. Untuk edit konten dasar cukup ganti teks dan gambar. Namun basic HTML/CSS akan sangat membantu untuk kustomisasi lebih lanjut.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Q: Berapa lama proses instalasi template?</h4>
+                    <p><strong>A:</strong> Jika sudah familiar dengan hosting, sekitar 1-2 jam. Untuk pemula mungkin 3-4 jam. Kami juga menyediakan layanan instalasi gratis.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Q: Apakah template sudah responsive dan SEO friendly?</h4>
+                    <p><strong>A:</strong> Ya, semua template sudah 100% responsive (mobile-friendly) dan telah dioptimasi untuk SEO dengan meta tags, structured data, dan loading speed yang baik.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Q: Bisakah saya modifikasi template sesuka hati?</h4>
+                    <p><strong>A:</strong> Tentu saja! Setelah pembelian, template menjadi milik Anda sepenuhnya. Anda bebas modifikasi sesuai kebutuhan.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Q: Apakah ada batasan penggunaan template?</h4>
+                    <p><strong>A:</strong> Template untuk single use (1 website). Jika ingin digunakan untuk multiple website, silakan beli lisensi extended atau hubungi kami.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="tutorial-step">
+            <div class="step-header">
+                <div class="step-number"><i class="fas fa-rocket"></i></div>
+                <h2>Siap Memulai?</h2>
+            </div>
+            <div class="step-content">
+                <h3>Dapatkan Template Premium Sekarang!</h3>
+                <p>Dengan mengikuti tutorial di atas, Anda sudah siap menggunakan template website premium dari VIN NESIA. Jangan ragu untuk memulai bisnis online Anda!</p>
+                
+                <div class="success-box">
+                    <i class="fas fa-star success-icon"></i>
+                    <strong>Keuntungan berlangganan template VIN NESIA:</strong>
+                    <ul>
+                        <li>✅ Design premium dan modern</li>
+                        <li>✅ 100% responsive dan mobile-friendly</li>
+                        <li>✅ SEO optimized untuk ranking Google</li>
+                        <li>✅ Loading speed di bawah 3 detik</li>
+                        <li>✅ Support 24/7 via WhatsApp</li>
+                        <li>✅ Free installation service</li>
+                        <li>✅ Lifetime updates</li>
+                        <li>✅ Harga terjangkau mulai 150rb</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <a href="../index.html#templates" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                        <i class="fas fa-shopping-cart"></i>
+                        Lihat Template Premium
+                    </a>
+                </div>
+                
+                <p style="text-align: center; margin-top: 2rem;">
+                    <strong>Masih ada pertanyaan?</strong><br>
+                    Hubungi kami di <a href="https://wa.me/6289535451177">WhatsApp: +62 895 3545 11777</a><br>
+                    atau email: <a href="mailto:support@vinnesia.my.id">support@vinnesia.my.id</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); margin-top: 3rem; padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <div style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                <a href="../index.html" style="color: var(--primary-color); text-decoration: none;">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="../index.html#templates" style="color: var(--primary-color); text-decoration: none;">
+                    <i class="fas fa-layer-group"></i> Template
+                </a>
+                <a href="faq.html" style="color: var(--primary-color); text-decoration: none;">
+                    <i class="fas fa-question-circle"></i> FAQ
+                </a>
+                <a href="https://wa.me/6289535451177" style="color: var(--primary-color); text-decoration: none;">
+                    <i class="fab fa-whatsapp"></i> Support
+                </a>
+            </div>
+            <p style="color: var(--text-secondary); margin: 0;">&copy; 2025 VIN NESIA. All rights reserved. Built with ❤️ for everyone.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6289535451177" 
+       style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); z-index: 1000; text-decoration: none; transition: all 0.3s ease;"
+       onmouseover="this.style.transform='scale(1.1)'"
+       onmouseout="this.style.transform='scale(1)'"
+       title="Hubungi via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Simple JavaScript for smooth scrolling -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate tutorial steps
+        document.querySelectorAll('.tutorial-step').forEach(step => {
+            step.style.opacity = '0';
+            step.style.transform = 'translateY(20px)';
+            step.style.transition = 'all 0.6s ease';
+            observer.observe(step);
+        });
+
+        // Back to top functionality
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                if (!document.getElementById('backToTop')) {
+                    const backToTop = document.createElement('button');
+                    backToTop.id = 'backToTop';
+                    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+                    backToTop.style.cssText = `
+                        position: fixed;
+                        bottom: 90px;
+                        right: 20px;
+                        background: var(--primary-color);
+                        color: white;
+                        border: none;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+                        z-index: 999;
+                        transition: all 0.3s ease;
+                    `;
+                    backToTop.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+                    document.body.appendChild(backToTop);
+                }
+            } else {
+                const backToTop = document.getElementById('backToTop');
+                if (backToTop) backToTop.remove();
+            }
+        });
+    </script>
+</body>
+</html>
