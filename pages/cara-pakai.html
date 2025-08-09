@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Cara Pakai Template Website - Tutorial Lengkap | Template VIN NESIA</title>
+    <meta name="description" content="Tutorial lengkap cara menggunakan template website HTML CSS JavaScript dari VIN NESIA. Panduan step-by-step untuk pemula sampai mahir.">
+    <meta name="keywords" content="tutorial template website, cara pakai template html, panduan website, tutorial web development, cara install template">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cara Pakai Template Website - Tutorial Lengkap">
+    <meta property="og:description" content="Panduan lengkap menggunakan template website premium dari VIN NESIA">
+    <meta property="og:url" content="https://template.vinnesia.my.id/pages/cara-pakai.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://template.vinnesia.my.id/pages/cara-pakai.html">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom page styles -->
+    <style>
+        .tutorial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--space-3xl) var(--space-md);
+        }
+        
+        .tutorial-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            padding: var(--space-2xl);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .tutorial-step {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-bottom: var(--space-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+        
+        .tutorial-step:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-2px);
+        }
+        
+        .step-header {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: var(--space-lg) var(--space-xl);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: var(--text-lg);
+        }
+        
+        .step-content {
+            padding: var(--space-xl);
+        }
+        
+        .step-content h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            font-size: var(--text-xl);
+        }
+        
+        .step-content p {
+            margin-bottom: var(--space-md);
+            line-height: 1.7;
+        }
+        
+        .step-content ul {
+            margin: var(--space-md) 0;
+            padding-left: var(--space-xl);
+        }
+        
+        .step-content li {
+            margin-bottom: var(--space-sm);
+            line-height: 1.6;
+        }
+        
+        .code-block {
+            background: #1F2937;
+            color: #F9FAFB;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            margin: var(--space-md) 0;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .code-block::before {
+            content: attr(data-language);
+            position: absolute;
+            top: var(--space-sm);
+            right: var(--space-md);
+            font-size: var(--text-xs);
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+        
+        .warning-box {
+            background: #FEF3C7;
+            border: 1px solid #F59E0B;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin: var(--space-md) 0;
+        }
+        
+        .warning-box .warning-icon {
+            color: #F59E0B;
+            margin-right: var(--space-sm);
+        }
+        
+        .success-box {
+            background: #D1FAE5;
+            border: 1px solid #10B981;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin: var(--space-md) 0;
+        }
+        
+        .success-box .success-icon {
+            color: #10B981;
+            margin-right: var(--space-sm);
+        }
+        
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+        
+        .tool-item {
+            background: var(--bg-secondary);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid #E5E7EB;
+            transition: all var(--transition-base);
+        }
+        
+        .tool-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .tool-icon {
+            font-size: var(--text-2xl);
+            color: var(--primary-color);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .toc {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--space-xl);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .toc h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            font-size: var(--text-lg);
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: var(--space-sm) var(--space-m
