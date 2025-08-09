@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Web Designer & Front-End Developer</title>
+    <title>VIN NESIA - Spesialis Website Cepat & Modern</title>
     <meta name="description" content="Spesialis pembuatan website cepat, modern, dan SEO-friendly untuk bisnis Anda">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -20,125 +20,290 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background: #0f0f23;
+            color: #e2e8f0;
+            line-height: 1.7;
             overflow-x: hidden;
         }
         
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 100px 20px;
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #0f0f23, #1a1a3a, #2d2d5a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        .background-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(119, 198, 255, 0.3), transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             position: relative;
-            border-radius: 0 0 50px 50px;
-            margin-bottom: 50px;
+            padding: 2rem;
         }
         
-        .profile-img {
-            width: 120px;
-            height: 120px;
+        .hero-content {
+            max-width: 1000px;
+            z-index: 2;
+        }
+        
+        .hero-image {
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 4px solid #667eea;
-            margin-bottom: 20px;
+            border: 4px solid rgba(102, 126, 234, 0.3);
+            margin: 0 auto 2rem;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
         }
         
-        .profile-img:hover {
-            transform: scale(1.1) rotate(5deg);
+        .hero-image:hover {
+            transform: scale(1.05) rotate(3deg);
+            border-color: #667eea;
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.4);
         }
         
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 10px;
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .tagline {
-            font-size: 1.2rem;
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: #667eea;
-            font-weight: 500;
-            margin-bottom: 20px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
         }
         
-        .intro {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1rem;
-            color: #666;
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border-color: #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
         }
         
         /* Main Container */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
         
         /* Section Styling */
         .section {
-            background: rgba(255, 255, 255, 0.9);
-            margin: 40px 0;
-            padding: 50px 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .section:hover {
-            transform: translateY(-5px);
-        }
-        
-        .section-title {
-            font-size: 2.2rem;
-            color: #333;
-            text-align: center;
-            margin-bottom: 40px;
+            padding: 6rem 0;
             position: relative;
         }
         
-        .section-title::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            display: block;
-            margin: 15px auto;
-            border-radius: 2px;
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
         
-        /* Portfolio Grid */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Portfolio Grid - Desktop Optimized */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        /* Desktop: 3 columns for large screens */
+        @media (min-width: 1400px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Desktop: 2 columns for medium screens */
+        @media (min-width: 900px) and (max-width: 1399px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         .portfolio-card {
-            background: white;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
         }
         
         .portfolio-card:hover {
-            transform: translateY(-10px);
-            border-color: #667eea;
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+            transform: translateY(-15px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.2);
         }
         
         .card-image {
             position: relative;
-            height: 200px;
+            height: 280px;
             overflow: hidden;
         }
         
@@ -146,7 +311,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
         
         .portfolio-card:hover .card-image img {
@@ -155,150 +320,185 @@
         
         .card-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 1.5rem;
+            right: 1.5rem;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 5px 12px;
+            padding: 0.5rem 1rem;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .portfolio-card:hover .card-overlay {
+            opacity: 1;
         }
         
         .card-content {
-            padding: 25px;
+            padding: 2rem;
         }
         
         .card-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
         }
         
         .card-description {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
         
         .card-features {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
         }
         
         .feature-tag {
-            background: #f0f4ff;
+            background: rgba(102, 126, 234, 0.2);
             color: #667eea;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
             font-weight: 500;
+            border: 1px solid rgba(102, 126, 234, 0.3);
         }
         
         .card-actions {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
         }
         
-        .btn {
-            padding: 10px 20px;
-            border-radius: 8px;
+        .card-btn {
+            flex: 1;
+            padding: 0.875rem 1.5rem;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
-            flex: 1;
             justify-content: center;
+            gap: 0.5rem;
         }
         
-        .btn-primary {
+        .card-btn-primary {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
         }
         
-        .btn-secondary {
+        .card-btn-secondary {
             background: transparent;
             color: #667eea;
-            border: 2px solid #667eea;
+            border: 2px solid rgba(102, 126, 234, 0.5);
         }
         
-        .btn:hover {
+        .card-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
         
-        .btn-secondary:hover {
+        .card-btn-secondary:hover {
             background: #667eea;
             color: white;
         }
         
-        /* Specialization Cards */
-        .specialization-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .spec-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .spec-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
-        }
-        
-        .spec-icon {
-            font-size: 3rem;
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-        
-        .spec-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        
-        .spec-description {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* Pricing Cards */
-        .pricing-grid {
+        /* Services Grid */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (min-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        .service-description {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+        
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (min-width: 1100px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         .pricing-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
             position: relative;
         }
         
         .pricing-card.popular {
-            border: 3px solid #667eea;
+            border-color: #667eea;
             transform: scale(1.05);
+            background: rgba(102, 126, 234, 0.1);
         }
         
         .pricing-card.popular::before {
@@ -309,262 +509,362 @@
             transform: translateX(-50%);
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
         }
         
         .pricing-card:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.2);
         }
         
         .pricing-card.popular:hover {
-            transform: translateY(-5px) scale(1.07);
+            transform: translateY(-10px) scale(1.05);
         }
         
         .package-name {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
         }
         
         .package-price {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
             color: #667eea;
-            margin-bottom: 20px;
+            margin-bottom: 2rem;
         }
         
         .package-features {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 2.5rem;
+            text-align: left;
         }
         
         .package-features li {
-            padding: 8px 0;
-            color: #666;
+            padding: 0.75rem 0;
+            color: #cbd5e1;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 1rem;
         }
         
         .package-features li::before {
             content: '✓';
-            color: #4CAF50;
+            color: #4ade80;
             font-weight: bold;
+            font-size: 1.2rem;
         }
         
         /* Contact Section */
-        .contact-info {
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
         
-        .contact-item {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
+        @media (min-width: 900px) {
+            .contact-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
         }
         
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.2);
         }
         
         .contact-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #667eea;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
         
         .contact-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
         }
         
-        .contact-text {
-            color: #666;
-            margin-bottom: 15px;
+        .contact-description {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
         }
         
         .contact-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 12px 24px;
+            padding: 1rem 2rem;
             border-radius: 25px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
         
         .contact-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
         
-        /* Responsive */
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                padding: 60px 20px;
+            .nav-links {
+                display: none;
             }
             
-            header h1 {
-                font-size: 2rem;
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .hero {
+                padding: 6rem 1rem 2rem;
+                min-height: 90vh;
+            }
+            
+            .hero-image {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 0 1rem;
             }
             
             .section {
-                padding: 30px 20px;
-                margin: 20px 0;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
+                padding: 4rem 0;
             }
             
             .portfolio-grid,
-            .specialization-grid,
-            .pricing-grid {
+            .services-grid,
+            .pricing-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 1.5rem;
+            }
+            
+            .card-content {
+                padding: 1.5rem;
+            }
+            
+            .card-actions {
+                flex-direction: column;
             }
             
             .pricing-card.popular {
                 transform: none;
             }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .card-image {
+                height: 200px;
+            }
+            
+            .service-card,
+            .contact-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .pricing-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        /* Animation for scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 3rem 0 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="https://via.placeholder.com/120x120/667eea/ffffff?text=WD" alt="Profile" class="profile-img">
-        <h1>VIN NESIA</h1>
-        <p class="tagline">🚀 Spesialis Website Cepat & Modern</p>
-        <p class="intro">Saya fokus membuat website yang loading-nya super cepat, SEO-friendly, dan mobile responsive. Cocok banget untuk bisnis yang ingin tampil profesional dengan budget terjangkau!</p>
-    </header>
+    <div class="background-animation"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">VIN NESIA</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="https://via.placeholder.com/180x180/667eea/ffffff?text=VN" alt="VIN NESIA Profile" class="hero-image">
+            <h1 class="hero-title">VIN NESIA</h1>
+            <p class="hero-subtitle">🚀 Spesialis Website Cepat & Modern</p>
+            <p class="hero-description">
+                Saya fokus membuat website yang loading-nya super cepat, SEO-friendly, dan mobile responsive. 
+                Cocok banget untuk bisnis yang ingin tampil profesional dengan budget terjangkau!
+            </p>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn btn-primary">
+                    <i class="fas fa-eye"></i> Lihat Portfolio
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> Konsultasi Gratis
+                </a>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
         <!-- Portfolio Section -->
-        <section class="section">
-            <h2 class="section-title">💼 Portfolio Terbaru</h2>
+        <section class="section fade-in" id="portfolio">
+            <div class="section-header">
+                <h2 class="section-title">💼 Portfolio Terbaru</h2>
+                <p class="section-subtitle">Beberapa project website yang telah saya kerjakan dengan hasil yang memuaskan</p>
+            </div>
             <div class="portfolio-grid">
-                <div class="portfolio-card">
+                <article class="portfolio-card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=200&fit=crop" alt="Cafe Cozy Landing Page">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&h=300&fit=crop" alt="Cafe Cozy Landing Page">
                         <div class="card-badge">Landing Page</div>
+                        <div class="card-overlay">
+                            <div class="card-features">
+                                <span class="feature-tag">React</span>
+                                <span class="feature-tag">Mobile First</span>
+                                <span class="feature-tag">Fast Loading</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Cafe Cozy - Website Resto</h3>
                         <p class="card-description">Website modern untuk cafe dengan menu interaktif, galeri foto, dan kontak WhatsApp. Loading cepat dan mobile-friendly!</p>
                         <div class="card-features">
                             <span class="feature-tag">Responsive Design</span>
-                            <span class="feature-tag">Fast Loading</span>
                             <span class="feature-tag">WhatsApp Integration</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="btn btn-primary">
-                                <i class="fas fa-eye"></i> Live Preview
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=400&h=200&fit=crop" alt="Photographer Portfolio">
-                        <div class="card-badge">Portfolio</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Andi Photographer</h3>
-                        <p class="card-description">Portfolio website untuk fotografer profesional dengan gallery yang elegant dan form kontak terintegrasi.</p>
-                        <div class="card-features">
-                            <span class="feature-tag">Image Gallery</span>
-                            <span class="feature-tag">Contact Form</span>
                             <span class="feature-tag">SEO Optimized</span>
                         </div>
                         <div class="card-actions">
-                            <a href="#" class="btn btn-primary">
+                            <a href="#" class="card-btn card-btn-primary">
                                 <i class="fas fa-eye"></i> Live Preview
+                            </a>
+                            <a href="#" class="card-btn card-btn-secondary">
+                                <i class="fas fa-info-circle"></i> Details
                             </a>
                         </div>
                     </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=200&fit=crop" alt="Wedding Invitation">
-                        <div class="card-badge">Wedding Site</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Rini & Budi Wedding</h3>
-                        <p class="card-description">Website undangan pernikahan digital dengan countdown timer, peta lokasi, dan RSVP online. Hemat budget printing!</p>
-                        <div class="card-features">
-                            <span class="feature-tag">Digital Invitation</span>
-                            <span class="feature-tag">RSVP Form</span>
-                            <span class="feature-tag">Map Integration</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="btn btn-primary">
-                                <i class="fas fa-eye"></i> Live Preview
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- Specialization Section -->
-        <section class="section">
-            <h2 class="section-title">🎯 Keahlian Saya</h2>
-            <div class="specialization-grid">
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3 class="spec-title">Website Super Cepat</h3>
-                    <p class="spec-description">Website yang saya buat loading-nya sangat cepat karena menggunakan teknik optimasi terbaru. Cocok untuk bisnis yang ingin customer tidak kabur karena loading lama!</p>
+        <!-- Services Section -->
+        <section class="section fade-in" id="services">
+            <div class="section-header">
+                <h2 class="section-title">🎯 Keahlian Saya</h2>
+                <p class="section-subtitle">Spesialisasi dalam pembuatan website yang cepat, modern, dan user-friendly</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-rocket service-icon"></i>
+                    <h3 class="service-title">Website Super Cepat</h3>
+                    <p class="service-description">Website yang saya buat loading-nya sangat cepat karena menggunakan teknik optimasi terbaru. Cocok untuk bisnis yang ingin customer tidak kabur karena loading lama!</p>
                 </div>
 
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="spec-title">Mobile Responsive</h3>
-                    <p class="spec-description">Semua website yang saya buat pasti tampil bagus di HP, tablet, dan desktop. Karena 80% orang sekarang buka website dari HP!</p>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt service-icon"></i>
+                    <h3 class="service-title">Mobile Responsive</h3>
+                    <p class="service-description">Semua website yang saya buat pasti tampil bagus di HP, tablet, dan desktop. Karena 80% orang sekarang buka website dari HP!</p>
                 </div>
 
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3 class="spec-title">SEO Friendly</h3>
-                    <p class="spec-description">Website Anda akan mudah ditemukan di Google karena saya optimasi struktur dan konten sesuai standar SEO terbaru.</p>
+                <div class="service-card">
+                    <i class="fas fa-search service-icon"></i>
+                    <h3 class="service-title">SEO Friendly</h3>
+                    <p class="service-description">Website Anda akan mudah ditemukan di Google karena saya optimasi struktur dan konten sesuai standar SEO terbaru.</p>
                 </div>
 
-                <div class="spec-card">
-                    <div class="spec-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <h3 class="spec-title">Hosting Hemat</h3>
-                    <p class="spec-description">Karena website statis, hosting-nya lebih murah dan stabil. Anda bisa hemat biaya operasional website hingga 70%!</p>
+                <div class="service-card">
+                    <i class="fas fa-dollar-sign service-icon"></i>
+                    <h3 class="service-title">Hosting Hemat</h3>
+                    <p class="service-description">Karena website statis, hosting-nya lebih murah dan stabil. Anda bisa hemat biaya operasional website hingga 70%!</p>
                 </div>
             </div>
         </section>
 
         <!-- Pricing Section -->
-        <section class="section">
-            <h2 class="section-title">💰 Paket Harga Terjangkau</h2>
+        <section class="section fade-in" id="pricing">
+            <div class="section-header">
+                <h2 class="section-title">💰 Paket Harga Terjangkau</h2>
+                <p class="section-subtitle">Pilih paket yang sesuai dengan kebutuhan dan budget Anda</p>
+            </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3 class="package-name">Paket Starter</h3>
@@ -576,6 +876,7 @@
                         <li>SEO basic</li>
                         <li>Revisi 2x</li>
                         <li>Selesai 3-5 hari</li>
+                        <li>Domain & hosting guidance</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Pilih Paket</a>
                 </div>
@@ -590,8 +891,10 @@
                         <li>SEO optimized</li>
                         <li>Image gallery</li>
                         <li>Google Maps integration</li>
+                        <li>Social media integration</li>
                         <li>Revisi 5x</li>
                         <li>Selesai 5-7 hari</li>
+                        <li>Analytics setup</li>
                     </ul>
                     <a href="#contact" class="btn btn-primary">Pilih Paket</a>
                 </div>
@@ -604,11 +907,13 @@
                         <li>Custom design</li>
                         <li>Advanced contact forms</li>
                         <li>SEO premium</li>
-                        <li>Social media integration</li>
+                        <li>E-commerce ready</li>
                         <li>Performance optimization</li>
+                        <li>Social media integration</li>
                         <li>Revisi unlimited</li>
                         <li>Selesai 7-10 hari</li>
                         <li>Free minor update 3 bulan</li>
+                        <li>Priority support</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Pilih Paket</a>
                 </div>
@@ -616,37 +921,34 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="section">
-            <h2 class="section-title">📞 Yuk Konsultasi Gratis!</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
+        <section class="section fade-in" id="contact">
+            <div class="section-header">
+                <h2 class="section-title">📞 Yuk Konsultasi Gratis!</h2>
+                <p class="section-subtitle">Hubungi saya sekarang untuk diskusi project website impian Anda</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp contact-icon"></i>
                     <h3 class="contact-title">WhatsApp</h3>
-                    <p class="contact-text">Chat langsung untuk konsultasi cepat</p>
+                    <p class="contact-description">Chat langsung untuk konsultasi cepat dan response dalam hitungan menit</p>
                     <a href="https://wa.me/6289535451177?text=Halo%20kak,%20saya%20mau%20konsultasi%20website" class="contact-link" target="_blank">
                         <i class="fab fa-whatsapp"></i> Chat Sekarang
                     </a>
                 </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope contact-icon"></i>
                     <h3 class="contact-title">Email</h3>
-                    <p class="contact-text">Untuk diskusi project detail</p>
+                    <p class="contact-description">Untuk diskusi project detail dan pengiriman file-file project</p>
                     <a href="mailto:admin@vinnesia.my.id?subject=Konsultasi%20Website" class="contact-link">
                         <i class="fas fa-envelope"></i> Kirim Email
                     </a>
                 </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-instagram"></i>
-                    </div>
+                <div class="contact-card">
+                    <i class="fab fa-instagram contact-icon"></i>
                     <h3 class="contact-title">Instagram</h3>
-                    <p class="contact-text">Lihat portfolio & tips website</p>
+                    <p class="contact-description">Lihat portfolio terbaru dan tips-tips website development</p>
                     <a href="https://www.instagram.com/Vin.nesia.id" class="contact-link" target="_blank">
                         <i class="fab fa-instagram"></i> Follow IG
                     </a>
@@ -655,24 +957,215 @@
         </section>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 VIN NESIA. All rights reserved. Built with ❤️ for your business success.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Simple animations
-        window.addEventListener('load', function() {
-            const cards = document.querySelectorAll('.portfolio-card, .spec-card, .pricing-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
-        // Initialize cards with hidden state
-        document.querySelectorAll('.portfolio-card, .spec-card, .pricing-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.5s ease';
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Portfolio card hover effects
+        document.querySelectorAll('.portfolio-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add parallax effect to background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const background = document.querySelector('.background-animation');
+            const rate = scrolled * -0.5;
+            background.style.transform = `translateY(${rate}px)`;
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'rgba(15, 15, 35, 0.95)';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.padding = '1rem';
+            navLinks.style.backdropFilter = 'blur(20px)';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+        });
+
+        // Initialize body opacity
+        document.body.style.opacity = '0';
+
+        // Typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero-subtitle');
+        const text = subtitle.textContent;
+        subtitle.textContent = '';
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                subtitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        // Start typing effect after page load
+        setTimeout(typeWriter, 1000);
+
+        // Add hover effect to CTA buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Track portfolio interactions for analytics
+        document.querySelectorAll('.card-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const projectName = this.closest('.portfolio-card').querySelector('.card-title').textContent;
+                console.log('Portfolio interaction:', projectName);
+                // Here you can add Google Analytics tracking
+            });
+        });
+
+        // Performance optimization: Lazy loading for images
+        const images = document.querySelectorAll('img');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                }
+            });
+        });
+
+        images.forEach(img => {
+            if (img.dataset.src) {
+                imageObserver.observe(img);
+            }
         });
     </script>
 </body>
 </html>
+
+                <article class="portfolio-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=500&h=300&fit=crop" alt="Photographer Portfolio">
+                        <div class="card-badge">Portfolio</div>
+                        <div class="card-overlay">
+                            <div class="card-features">
+                                <span class="feature-tag">Gallery</span>
+                                <span class="feature-tag">Contact Form</span>
+                                <span class="feature-tag">Elegant Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Andi Photographer</h3>
+                        <p class="card-description">Portfolio website untuk fotografer profesional dengan gallery yang elegant dan form kontak terintegrasi.</p>
+                        <div class="card-features">
+                            <span class="feature-tag">Image Gallery</span>
+                            <span class="feature-tag">Contact Form</span>
+                            <span class="feature-tag">SEO Optimized</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="card-btn card-btn-primary">
+                                <i class="fas fa-eye"></i> Live Preview
+                            </a>
+                            <a href="#" class="card-btn card-btn-secondary">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&h=300&fit=crop" alt="Wedding Invitation">
+                        <div class="card-badge">Wedding Site</div>
+                        <div class="card-overlay">
+                            <div class="card-features">
+                                <span class="feature-tag">Digital Invitation</span>
+                                <span class="feature-tag">RSVP</span>
+                                <span class="feature-tag">Map Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Rini & Budi Wedding</h3>
+                        <p class="card-description">Website undangan pernikahan digital dengan countdown timer, peta lokasi, dan RSVP online. Hemat budget printing!</p>
+                        <div class="card-features">
+                            <span class="feature-tag">Digital Invitation</span>
+                            <span class="feature-tag">RSVP Form</span>
+                            <span class="feature-tag">Map Integration</span>
+                        </div>
